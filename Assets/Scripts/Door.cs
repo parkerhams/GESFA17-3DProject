@@ -2,21 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour {
+public class Door : MonoBehaviour, IActivatable {
+    //Door must know about animator compenent to set the bool IsOpen
+    private Animator animator;
 
     public void DoActivate()
     {
-        throw new System.NotImplementedException();
+        animator.SetBool("IsOpen", true);
     }
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
+        animator = GetComponent<Animator>();
 	}
 }
